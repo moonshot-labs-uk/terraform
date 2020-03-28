@@ -1,5 +1,5 @@
 resource "digitalocean_ssh_key" "client" {
-  name       = "Terraform Moonshot Labs PaaS"
+  name       = "moonshotlabs_paas_pub"
   public_key = var.public_key
 }
 
@@ -10,7 +10,7 @@ resource "digitalocean_droplet" "moonshotlabs_paas" {
   region             = var.do_region
   size               = var.do_size
   private_networking = var.do_private_networking
-  ssh_keys = [data.digitalocean_ssh_key.client.id]
+  ssh_keys = [digitalocean_ssh_key.client.id]
 }
 
 output "instance_ip_addr" {
