@@ -1,3 +1,3 @@
 provider "digitalocean" {
-  token = var.TF_VAR_do_token
+  token = var.do_token
 }

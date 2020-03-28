@@ -10,8 +10,9 @@ resource "digitalocean_droplet" "moonshotlabs_paas" {
   region             = var.do_region
   size               = var.do_size
   private_networking = var.do_private_networking
+
   ssh_keys = [
-    var.TF_VAR_ssh_fingerprint
+    var.ssh_fingerprint
   ]
 }
 
