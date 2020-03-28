@@ -3,7 +3,7 @@ variable "do_token" {
   # value = ${env.do_token}
 }
 
-variable "ssh_fingerprint" {
+variable "public_key" {
   type = string
   # value = env.ssh_fingerprint
 }
