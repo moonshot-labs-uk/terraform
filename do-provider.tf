@@ -1,7 +1,9 @@
 variable "do_token" {
+  value = env.do_token
 }
 
 variable "ssh_fingerprint" {
+  value = env.ssh_fingerprint
 }
 
 variable "instance_count" {
