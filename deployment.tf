@@ -24,13 +24,13 @@ resource "digitalocean_droplet" "moonshotlabs_paas" {
   ssh_keys = [digitalocean_ssh_key.ssh_keys_client.id]
 }
 
-output "moonshotlabs_paas_ip_addr" {
-  value = {
-    for instance in digitalocean_droplet.moonshotlabs_paas:
-    instance.id => instance.ipv4_address
-  }
-  description = "The IP addresses of the deployed instances, paired with their IDs."
-}
+# output "moonshotlabs_paas_ip_addr" {
+#   value = {
+#     for instance in digitalocean_droplet.moonshotlabs_paas:
+#     instance.id => instance.ipv4_address
+#   }
+#   description = "The IP addresses of the deployed instances, paired with their IDs."
+# }
 
 resource "digitalocean_volume_attachment" "moonshotlabs_attached_volume" {
   droplet_id = digitalocean_droplet.moonshotlabs_paas.id
