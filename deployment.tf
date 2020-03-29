@@ -8,7 +8,7 @@ resource "digitalocean_floating_ip" "moonshotlabs_floating_ip" {
 }
 
 resource "digitalocean_volume" "moonshotlabs_data" {
-  name                    = "moonshotlabs_paas_data"
+  name                    = "moonshotlabsdata01"
   region                  = var.do_region
   size                    = var.do_volume_size
   initial_filesystem_type = "ext4"
@@ -34,7 +34,7 @@ output "moonshotlabs_paas_ip_addr" {
 
 resource "digitalocean_volume_attachment" "moonshotlabs_attached_volume" {
   droplet_id = digitalocean_droplet.moonshotlabs_paas.id
-  volume_id  = data.digitalocean_volume.paas_data.id
+  volume_id  = digitalocean_volume.moonshotlabs_data.id
 }
 
 resource "digitalocean_floating_ip_assignment" "moonshotlabs_assigned_ip" {
