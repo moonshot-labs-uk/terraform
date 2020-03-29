@@ -16,7 +16,6 @@ resource "digitalocean_volume" "moonshotlabs_data" {
 }
 
 resource "digitalocean_droplet" "moonshotlabs_paas" {
-  count              = var.instance_count
   image              = var.do_image
   name               = var.do_name
   region             = var.do_region
@@ -25,7 +24,7 @@ resource "digitalocean_droplet" "moonshotlabs_paas" {
   ssh_keys = [digitalocean_ssh_key.ssh_keys_client.id]
 }
 
-output "instance_ip_addr" {
+output "moonshotlabs_paas_ip_addr" {
   value = {
     for instance in digitalocean_droplet.moonshotlabs_paas:
     instance.id => instance.ipv4_address
