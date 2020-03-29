@@ -12,6 +12,10 @@ variable "instance_count" {
   default = 1
 }
 
+variable "do_volume_size" {
+  default = 20
+}
+
 variable "do_name" {
   default = "moonshotlabs-paas"
 }
